@@ -1,0 +1,14 @@
+﻿@model string
+
+<h1>Weather Information</h1>
+
+@if (!string.IsNullOrEmpty(Model))
+{
+    <div>
+        @Html.Raw(Model)
+    </div>
+}
+else
+{
+    <p>No weather data available.</p>
+}

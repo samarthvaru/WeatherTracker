@@ -1,0 +1,17 @@
+﻿@model WeatherTracker.Models.WeatherResponse
+
+<h1>Weather Information</h1>
+<p>Time: @Model.Current.ObservationTime</p>
+<p>City: @Model.Location.Name, @Model.Location.Country</p>
+<p>Temperature: @Model.Current.Temperature °C</p>
+@if (Model.Current.WeatherDescriptions != null && Model.Current.WeatherDescriptions.Any())
+{
+<p>Weather Description: @string.Join(", ", Model.Current.WeatherDescriptions)</p>
+}
+else
+{
+<p>Weather Description: Not available</p>
+}
+<!-- Include other weather properties as needed -->
+<!-- Back button or link to navigate back to the form -->
+<a asp-controller="Weather" asp-action="Index">Back to Form</a>

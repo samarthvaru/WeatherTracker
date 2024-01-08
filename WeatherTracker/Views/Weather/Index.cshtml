@@ -1,0 +1,9 @@
+﻿@model string
+
+<h1>Weather Information</h1>
+
+<form asp-controller="Weather" asp-action="Index" method="post">
+    <label for="cityName">Enter City Name:</label>
+    <input type="text" id="cityName" name="cityName" required>
+    <button type="submit">Get Weather</button>
+</form>
