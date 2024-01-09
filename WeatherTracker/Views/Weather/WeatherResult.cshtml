@@ -1,7 +1,7 @@
 ﻿@model WeatherTracker.Models.WeatherResponse
 
 <h1>Weather Information</h1>
-<p>Time: @Model.Current.ObservationTime</p>
+<p>Time: @Model.Location.LocalTime</p>
 <p>City: @Model.Location.Name, @Model.Location.Country</p>
 <p>Temperature: @Model.Current.Temperature °C</p>
 @if (Model.Current.WeatherDescriptions != null && Model.Current.WeatherDescriptions.Any())

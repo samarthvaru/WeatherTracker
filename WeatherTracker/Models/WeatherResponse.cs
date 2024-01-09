@@ -24,6 +24,9 @@ namespace WeatherTracker.Models
     {
         public string Name { get; set; }
         public string Country { get; set; }
+        
+        [JsonProperty("localtime")]
+        public string LocalTime { get; set; }
         // Other properties...
     }
 
