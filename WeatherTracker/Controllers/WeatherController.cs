@@ -44,7 +44,7 @@ namespace WeatherTracker.Controllers
             {
                 await blobStorageService.StoreUserCity(email, cityName);
             }
-            string apiKey = config["WeatherApi:ApiKey"];
+            string apiKey = config["WeatherApiKey"];
             string apiUrl = $"http://api.weatherstack.com/current?access_key={apiKey}&query={cityName}";
 
             var response = await client.GetAsync(apiUrl);
