@@ -15,7 +15,6 @@ variables:
   containerRegistry: 'weathertrackerregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/DockerFile'
   tag: '$(Build.BuildId)'
-  WeatherApiKey: '441d1ef463ebf1398130cc04ca151c87'
 
 
 
