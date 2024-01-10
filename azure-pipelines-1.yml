@@ -39,5 +39,4 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-        env:
-          WeatherApiKey: $(WeatherApiKey)
+
