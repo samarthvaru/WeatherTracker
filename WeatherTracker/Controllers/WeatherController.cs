@@ -15,10 +15,13 @@ namespace WeatherTracker.Controllers
     public class WeatherController : Controller
     {
         private readonly IHttpClientFactory _clientFactory;
+        private readonly BlobStorageService blobStorageService;
 
-        public WeatherController(IHttpClientFactory clientFactory)
+        public WeatherController(IHttpClientFactory clientFactory, IConfiguration configuration)
         {
             _clientFactory = clientFactory;
+            blobStorageService = new BlobStorageService(configuration);
+
         }
 
         [HttpGet]
@@ -28,12 +31,19 @@ namespace WeatherTracker.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(string cityName)
+        public async Task<IActionResult> Index(string email,string cityName)
         {
+
+
             IConfiguration config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
     .Build();
             var client = _clientFactory.CreateClient();
+
+            if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(cityName))
+            {
+                await blobStorageService.StoreUserCity(email, cityName);
+            }
             string apiKey = config["WeatherApi:ApiKey"];
             string apiUrl = $"http://api.weatherstack.com/current?access_key={apiKey}&query={cityName}";
 
