@@ -15,7 +15,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 
-ENV WeatherApiKey=$WEATHER_API_KEY
+ENV WeatherApiKey=$WeatherApiKey
 
 # Set the entry point for the application
 ENTRYPOINT ["dotnet", "WeatherTracker.dll"]
