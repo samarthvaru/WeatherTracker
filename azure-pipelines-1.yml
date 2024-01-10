@@ -40,4 +40,4 @@ stages:
         tags: |
           $(tag)
       env:
-        WEATHER_API_KEY: $(WeatherApiKey)
+        WEATHER_API_KEY: $(WEATHER_API_KEY)
