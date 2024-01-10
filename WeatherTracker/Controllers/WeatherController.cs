@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using WeatherTracker.Models;
 
@@ -16,11 +17,13 @@ namespace WeatherTracker.Controllers
     {
         private readonly IHttpClientFactory _clientFactory;
         private readonly BlobStorageService blobStorageService;
+        private readonly WeatherSettings _weatherSettings;
 
-        public WeatherController(IHttpClientFactory clientFactory, IConfiguration configuration)
+        public WeatherController(IHttpClientFactory clientFactory, IConfiguration configuration,IOptions<WeatherSettings> weatherSettings)
         {
             _clientFactory = clientFactory;
             blobStorageService = new BlobStorageService(configuration);
+            _weatherSettings = weatherSettings.Value;
 
         }
 
@@ -44,7 +47,7 @@ namespace WeatherTracker.Controllers
             {
                 await blobStorageService.StoreUserCity(email, cityName);
             }
-            string apiKey = config["WeatherApiKey"];
+            string apiKey = _weatherSettings.WeatherApiKey;
             string apiUrl = $"http://api.weatherstack.com/current?access_key={apiKey}&query={cityName}";
 
             var response = await client.GetAsync(apiUrl);

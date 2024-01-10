@@ -26,7 +26,9 @@ namespace WeatherTracker
             services.AddControllersWithViews();
 
             services.AddHttpClient();
+            services.Configure<WeatherSettings>(Configuration.GetSection("WeatherSettings"));
         }
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
