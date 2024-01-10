@@ -15,8 +15,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 
-ARG WeatherApiKey=__API_KEY__
-RUN sed -i "s/__API_KEY__/${WeatherApiKey}/" appsettings.json
+RUN sed -i "s/__API_KEY__/${WEATHER_API_KEY}/" appsettings.json
 
 # Set the entry point for the application
 ENTRYPOINT ["dotnet", "WeatherTracker.dll"]
