@@ -15,7 +15,7 @@ variables:
   containerRegistry: 'weathertrackerregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/DockerFile'
   tag: '$(Build.BuildId)'
-
+  WEATHER_API_KEY: $(WeatherApiKey)
 
 
   # Agent VM image name
@@ -40,4 +40,4 @@ stages:
         tags: |
           $(tag)
       env:
-        WeatherApiKey: $(WeatherApiKey)
+        WEATHER_API_KEY: $(WeatherApiKey)
