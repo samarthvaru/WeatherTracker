@@ -1,5 +1,7 @@
 Created a .NET web application utilizing weather APIs and hosted it on an Azure App Service Web App, emphasizing containerization for enhanced scalability and efficiency.
+
 Implemented an Azure Function to trigger alerts upon specific weather thresholds, seamlessly integrating it with the web application for real-time notifications.
+
 Administered deployment via Azure Container Apps, established a robust CI/CD pipeline on GitHub and Azure DevOps, and incorporated Application Insights & Azure Monitor for comprehensive monitoring and documentation.
 
 ![image](https://github.com/samarthvaru/WeatherTracker/assets/63781024/6013a284-f572-441b-bb1b-a695583543c8)
