@@ -8,6 +8,10 @@ Azure DevOps: CI/CD enabled.
 
 ![image](https://github.com/samarthvaru/WeatherTracker/assets/63781024/fbe57681-e97d-42d0-a84e-a7722fd87a03)
 
+Function Triggered based on Temperature. 
+
+![image](https://github.com/samarthvaru/WeatherTracker/assets/63781024/40bbee02-f04b-4c30-acd3-b90888666485)
+
 
 
 
